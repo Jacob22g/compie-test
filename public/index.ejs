@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial0scale=1.0" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+        <span onclick="openNav()">open</span> <!-- Use any element to open the sidenav -->
+
+        <a class="navbar-brand ms-3">Map Application</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" onclick="locationFunction('australia')" href="#">Australia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="locationFunction('israel')" href="#">Israel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="locationFunction('usa')" href="#">United States</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="locationFunction('france')" href="#">France</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="locationFunction('japan')" href="#">Japan</a>
+            </li>
+          </li>
+          </ul>
+        </div>
+    </nav>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Clients</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div id="map"></div>
+
+    <script>
+      // const users = [{name: 'jack', location_latitude: 35.0000, location_longitude: 35.0000}, {name:'jhon', location_latitude: 35.0000, location_longitude: 35.0000}]
+      const users = <%- users %>
+      if(users != 0) {
+        console.log('users:',users.length)
+        
+        // create markers:
+        usersFunction(users)
+
+      } else {
+        console.log('no users')
+      }
+    </script>
+ 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5abiKPVO2J1RwM-8AA7biri8UiBY4Soc&callback=initMap"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
